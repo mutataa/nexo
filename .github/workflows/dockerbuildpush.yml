@@ -17,6 +17,7 @@ jobs:
     - name: Docker Build
       uses: docker/build-push-action@v2 
       with:
+        context: ./nexo/app
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ github.sha }}
 
