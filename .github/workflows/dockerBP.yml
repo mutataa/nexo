@@ -16,8 +16,8 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }} 
     - name: Docker Build
       run: |
-        docker build --tag nexoimage:$(date +%s)
+        docker build --tag ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ github.sha }}
     - name: Docker Push
       run: |
-        docker push nexoimage:$(date +%s)  
+        docker push --tag ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ github.sha }}
 
