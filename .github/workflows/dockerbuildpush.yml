@@ -20,4 +20,8 @@ jobs:
         context: ./app
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ github.sha }}
+    - name: Update application.yaml
+      run : | 
+        sed -i -e "s/IMAGE_LABEL/${{ github.sha }}/g" application.yaml
+      
 
