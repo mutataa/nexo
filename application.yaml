@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: app-cont
-        image: muteto0/nexoimage:123
+        image: muteto0/nexoimage:IMAGE_LABEL
         ports:
         - containerPort: 8080 
 ---
