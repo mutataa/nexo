@@ -21,7 +21,7 @@ jobs:
       with:
         context: ./app
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ github.sha }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:123
     - name: Update application.yaml
       run : | 
         sed "s/%IMAGE_LABEL%/${{ github.sha }}/g" application.yaml
