@@ -1,5 +1,6 @@
 name: Docker Build and Push
-
+env:
+  IMAGE_NAME: ${{ github.sha }}
 on:
   workflow_dispatch:
     inputs:
@@ -21,9 +22,9 @@ jobs:
       with:
         context: ./app
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ github.sha }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/nexoimage:${{ env.IMAGE_NAME }}
     - name: Update application.yaml
       run : | 
-        sed "s/%IMAGE_LABEL%=${{ github.sha }}/g" application.yaml
+        sed "s/%IMAGE_NAME%" application.yaml
       
 
